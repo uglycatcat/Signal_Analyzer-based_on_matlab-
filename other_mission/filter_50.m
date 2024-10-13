@@ -1,3 +1,5 @@
+%截止频率为50Hz的低通滤波器
+
 function Hd = filter_50
 %FILTERR 返回离散时间滤波器对象。
 

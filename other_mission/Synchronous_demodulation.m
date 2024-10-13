@@ -1,3 +1,5 @@
+%用于同步解调的演示
+
 % 设置参数
 Fs = 1000;  % 采样频率 (Hz)
 t = 0:1/Fs:1;  % 时间向量 (1秒)
@@ -23,9 +25,9 @@ noisy_am_signal = am_signal + 0.1 * randn(size(am_signal));  % 含噪声信号
 figure;
 subplot(3, 1, 1);
 plot(t, noisy_am_signal);
-title('Received AM Signal (With Noise)');
-xlabel('Time (s)');
-ylabel('Amplitude');
+title('接收到的AM信号（有噪声）');
+xlabel('时间 (s)');
+ylabel('幅度');
 grid on;
 
 % 同步解调过程
@@ -39,14 +41,14 @@ recovered_signal = filter(b, a, demodulated_signal);  % 滤波器提取调制信
 % 绘制解调后的信号
 subplot(3, 1, 2);
 plot(t, demodulated_signal);
-title('Demodulated Signal (Before Filtering)');
-xlabel('Time (s)');
-ylabel('Amplitude');
+title('解调信号（滤波前）');
+xlabel('时间 (s)');
+ylabel('幅度');
 grid on;
 
 subplot(3, 1, 3);
 plot(t, recovered_signal);
-title('Recovered Modulating Signal (After Low-pass Filtering)');
-xlabel('Time (s)');
-ylabel('Amplitude');
+title('恢复的调制信号（低通滤波后）');
+xlabel('时间 (s)');
+ylabel('幅度');
 grid on;

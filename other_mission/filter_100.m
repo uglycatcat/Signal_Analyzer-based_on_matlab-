@@ -1,3 +1,5 @@
+%截止频率为100Hz的低通滤波器
+
 function Hd = filter_100
 %FILTER_150 返回离散时间滤波器对象。
 

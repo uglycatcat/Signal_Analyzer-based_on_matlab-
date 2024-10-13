@@ -1,3 +1,5 @@
+%产生周期方波信号并进行滤波，分别展示时域和频域的变化
+
 % 产生周期方波信号并进行频谱分析，以及应用不同的滤波器
 clear;
 clc;
@@ -19,9 +21,9 @@ square_wave = square(2 * pi * f_square * t);  % 产生方波信号
 figure;
 subplot(3, 2, 1);
 plot(t, square_wave);
-title('Original Square Wave Signal (Time Domain)');
-xlabel('Time (s)');
-ylabel('Amplitude');
+title('原始方波信号（时域）');
+xlabel('时间 (s)');
+ylabel('幅度');
 grid on;
 
 % 对方波进行频谱分析（FFT）
@@ -35,9 +37,9 @@ f = Fs*(0:(N/2))/N;        % 频率向量
 % 绘制原始方波信号的频域图像
 subplot(3, 2, 2);
 plot(f, P1);
-title('Original Square Wave Signal (Frequency Domain)');
-xlabel('Frequency (Hz)');
-ylabel('Magnitude');
+title('原始方波信号（频域）');
+xlabel('频率(Hz)');
+ylabel('幅度');
 grid on;
 
 % 应用截止频率为50 Hz的滤波器
@@ -46,9 +48,9 @@ filtered_signal_50 = filter(Hd_50, square_wave);
 % 绘制截止频率为50 Hz的滤波后方波信号的时域图像
 subplot(3, 2, 3);
 plot(t, filtered_signal_50);
-title('Filtered Square Wave (50 Hz LPF) - Time Domain');
-xlabel('Time (s)');
-ylabel('Amplitude');
+title('50Hz低通滤波器（时域）');
+xlabel('时间 (s)');
+ylabel('幅度');
 grid on;
 
 % 对50 Hz滤波后的信号进行频谱分析（FFT）
@@ -60,9 +62,9 @@ P1_filtered_50(2:end-1) = 2*P1_filtered_50(2:end-1); % 仅保留正频率部分
 % 绘制50 Hz滤波后的频域图像
 subplot(3, 2, 4);
 plot(f, P1_filtered_50);
-title('Filtered Square Wave (50 Hz LPF) - Frequency Domain');
-xlabel('Frequency (Hz)');
-ylabel('Magnitude');
+title('50Hz低通滤波器（频域）');
+xlabel('频率 (Hz)');
+ylabel('幅度');
 grid on;
 
 % 应用截止频率为150 Hz的滤波器
@@ -71,9 +73,9 @@ filtered_signal_150 = filter(Hd_150, square_wave);
 % 绘制截止频率为150 Hz的滤波后方波信号的时域图像
 subplot(3, 2, 5);
 plot(t, filtered_signal_150);
-title('Filtered Square Wave (150 Hz LPF) - Time Domain');
-xlabel('Time (s)');
-ylabel('Amplitude');
+title('100Hz低通滤波器（时域）');
+xlabel('时间 (s)');
+ylabel('幅度');
 grid on;
 
 % 对150 Hz滤波后的信号进行频谱分析（FFT）
@@ -85,9 +87,9 @@ P1_filtered_150(2:end-1) = 2*P1_filtered_150(2:end-1); % 仅保留正频率部�
 % 绘制150 Hz滤波后的频域图像
 subplot(3, 2, 6);
 plot(f, P1_filtered_150);
-title('Filtered Square Wave (150 Hz LPF) - Frequency Domain');
-xlabel('Frequency (Hz)');
-ylabel('Magnitude');
+title('100Hz低通滤波器（频域）');
+xlabel('频率 (Hz)');
+ylabel('幅度');
 grid on;
 
 % End of script
